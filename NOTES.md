@@ -42,7 +42,9 @@
 		return
 	}
     ```
-
+- asserts are missing by design (because usually they stop the test execution on failure)
+- we can use `github.com/stretchr/testify/assert` to write asserts in Go that don't stop the test execution on failure
+- `TestMain` is the entry point for tests. It receives the interface `testing.M`
 
 
 funny quote from the author:
