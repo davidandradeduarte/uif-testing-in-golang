@@ -45,7 +45,12 @@
 - asserts are missing by design (because usually they stop the test execution on failure)
 - we can use `github.com/stretchr/testify/assert` to write asserts in Go that don't stop the test execution on failure
 - `TestMain` is the entry point for tests. It receives the interface `testing.M`
+- we can't mock functions inside packages. Instead we should create methods on structs instead, that way we can mock them
+- we can mock single methods by implementing their own interface and providing a mock implementation
+- the `init` functions run as soon as the package is imported
 
 
 funny quote from the author:
 `deploying to production without tests is like drinking and driving`
+
+have a look at `github.com/stretchr/testify/mock`

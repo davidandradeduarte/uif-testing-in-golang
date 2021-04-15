@@ -1,16 +1,18 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/davidandradeduarte/uif-testing-in-golang-udemy/src/api/providers/locations_provider"
+	"github.com/davidandradeduarte/uif-testing-in-golang-udemy/src/api/app"
 )
 
 func main() {
-	country, err := locations_provider.GetCountry("AR")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println(country)
+	app.StartApp()
 }
+
+// func main() {
+// 	country, err := locations_provider.GetCountry("AR")
+// 	if err != nil {
+// 		fmt.Println(err)
+// 		return
+// 	}
+// 	fmt.Println(country)
+// }
