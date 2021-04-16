@@ -50,6 +50,8 @@
 - we can mock single methods by implementing their own interface and providing a mock implementation:  
 	`service.go`
 	```golang
+	package service
+
 	type service struct{}
 
 	type serviceInterface interface {
@@ -70,6 +72,8 @@
 	```
 	`service_test.go`
 	```golang
+	package service
+	
 	type serviceMock struct{}
 
 	var (
@@ -88,7 +92,26 @@
 		sut.Service = &serviceMock{}
 	}
 	```
+- functional tests are black box tests and should be created on their own separate package
+- try to keep the main package (entry point) as clean as possible by calling another package's startup func. This way is easier to hit the entry point of your app without having to call the main function. E.g:  
+	`main.go`
+	```golang
+	package main
 
+	func main() {
+		app.StartApp()
+	}
+	```
+	`app.go`
+	```golang
+	package app
+
+	func StartApp() {
+		// run
+	}
+	```
+	This way we can use `app.StartApp()` in our functional tests
+-
 
 funny quote from the author:
 `deploying to production without tests is like drinking and driving`
