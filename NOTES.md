@@ -111,9 +111,13 @@
 	}
 	```
 	This way we can use `app.StartApp()` in our functional tests
--
 
-funny quote from the author:
-`deploying to production without tests is like drinking and driving`
+## Additional notes
 
-have a look at `github.com/stretchr/testify/mock`
+I didn't really liked `Section 5 - Testing SQL integration`. Seems a bit rubbish trying to reinvent the wheel by implementing your own mock client. Also the fact that we relied on this condition `if isMocked && !isProduction() {...}` makes me sick.  
+Another thing I didn't like was the fact that he was always repelling external libraries (for dumb reasons imo), and then he came up with a rest client library, developed by the company he works for, and used it as an example (ツ)
+
+Funny quote:
+*deploying to production without tests is like drinking and driving*
+
+Have a look at `github.com/stretchr/testify/mock`
